@@ -88,19 +88,36 @@
             <p><strong>Name:</strong> [User's Name]</p>
             <p><strong>Email:</strong> [User's Email]</p>
             <p><strong>Date of Birth:</strong> [User's DOB]</p>
-            <!-- Additional account details can go here -->
         </div>
         
         <div class="nav-links">
             <a href="phoneno.html">Verify Phone Number</a>
-            <a href="#update-details">Update Account Details</a>
-            <a href="#support">Support</a>
+            <a href="updateaccount.html">Update Account Details</a>
+            <a href="contact.html">Support</a>
         </div>
 
         <div class="logout">
-            <a href="logout.php">Logout</a>
+            <a href="Index.html">Logout</a>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userName = localStorage.getItem('userName');
+            const userEmail = localStorage.getItem('userEmail');
+            const userDOB = localStorage.getItem('userDOB');
+
+            if (userName && userEmail && userDOB) {
+                document.querySelector('.welcome-message').textContent = `Welcome, ${userName}!`;
+                document.querySelector('.account-details').innerHTML = `
+                    <h2>Your Account Details</h2>
+                    <p><strong>Name:</strong> ${userName}</p>
+                    <p><strong>Email:</strong> ${userEmail}</p>
+                    <p><strong>Date of Birth:</strong> ${userDOB}</p>
+                `;
+            }
+        });
+    </script>
 
 </body>
 </html>
